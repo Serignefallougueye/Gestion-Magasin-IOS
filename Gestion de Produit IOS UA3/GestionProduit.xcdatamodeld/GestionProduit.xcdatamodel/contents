@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="24B91" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Categorie" representedClassName=".Categorie" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <relationship name="produits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Produit" inverseName="categorie" inverseEntity="Produit"/>
+    </entity>
+    <entity name="CommandeAchat" representedClassName=".CommandeAchat" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCommande" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="notes" optional="YES" attributeType="String"/>
+        <attribute name="statut" optional="YES" attributeType="String"/>
+        <relationship name="fournisseur" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Fournisseur"/>
+        <relationship name="lignesCommande" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="LigneCommande" inverseName="commande" inverseEntity="LigneCommande"/>
+    </entity>
+    <entity name="Emplacement" representedClassName=".Emplacement" syncable="YES" codeGenerationType="class">
+        <attribute name="capacite" optional="YES" attributeType="Integer 16" defaultValueString="100" usesScalarValueType="YES"/>
+        <attribute name="dateCreation" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <attribute name="occupation" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="type" optional="YES" attributeType="String"/>
+        <attribute name="zone" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="Fournisseur" representedClassName=".Fournisseur" syncable="YES" codeGenerationType="class">
+        <attribute name="categorie" optional="YES" attributeType="String"/>
+        <attribute name="contact" optional="YES" attributeType="String"/>
+        <attribute name="dateCreation" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <attribute name="siteWeb" optional="YES" attributeType="String"/>
+        <attribute name="statut" optional="YES" attributeType="String"/>
+        <attribute name="telephone" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="LigneCommande" representedClassName=".LigneCommande" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="quantite" optional="YES" attributeType="Integer 32" defaultValueString="1" usesScalarValueType="YES"/>
+        <relationship name="commande" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CommandeAchat" inverseName="lignesCommande" inverseEntity="CommandeAchat"/>
+        <relationship name="produit" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Produit"/>
+    </entity>
+    <entity name="Produit" representedClassName=".Produit" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreation" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <attribute name="prix" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="quantiteEnStock" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="seuilAlerte" optional="YES" attributeType="Integer 32" defaultValueString="10" usesScalarValueType="YES"/>
+        <relationship name="categorie" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categorie" inverseName="produits" inverseEntity="Categorie"/>
+    </entity>
+    <entity name="Utilisateur" representedClassName=".Utilisateur" syncable="YES" codeGenerationType="class">
+        <attribute name="dateCreation" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="derniereConnexion" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="email" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="motDePasse" optional="YES" attributeType="String"/>
+        <attribute name="nom" optional="YES" attributeType="String"/>
+        <attribute name="role" optional="YES" attributeType="String"/>
+        <attribute name="statut" optional="YES" attributeType="String"/>
+    </entity>
+</model> 
