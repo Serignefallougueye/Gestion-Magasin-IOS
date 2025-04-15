@@ -7,7 +7,7 @@ Application iOS de gestion de magasin développée avec SwiftUI et CoreData.
 - 👥 Gestion des utilisateurs
   - Création et modification des comptes
   - Gestion des rôles (Magasinier, Gestionnaire de Stock, Responsable Achats)
-  - Suivi des statuts utilisateurs pour
+  - Suivi des statuts utilisateurs 
 
 - 📦 Gestion des produits
   - Catalogue des produits
