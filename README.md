@@ -23,6 +23,8 @@ Application iOS de gestion de magasin développée avec SwiftUI et CoreData.
   - Vue d'ensemble du stock
   - Analyses des mouvements
   - Rapports personnalisables
+ 
+    
 
 ## Technologies utilisées
 
