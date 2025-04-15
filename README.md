@@ -66,7 +66,7 @@ open *.xcodeproj
   - `Services/` : Services partagés
   - `Extensions/` : Extensions utilitaires
 
-## Contribution
+## Contributions
 
 Les contributions sont les bienvenues ! N'hésitez pas à :
 
